@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start" class="phuto"  (click)="goToHomePage()">
+      <img src="assets\MUT LOGO.png" class="image-size" >
+    </ion-buttons>
+    <h2 class="header-title">LOGIN PAGE</h2>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="--background: url('assets/tiny.jpg') no-repeat center / cover;">
+  
+      <div class="container">
+          <div class="center">
+            <img src="assets\logo.jpg" alt="" srcset="" />
+          </div>
+        </div>
+  
+        <ion-card>
+            <ion-card-content>
+                <br>
+               <div class="color2">
+                <ion-label >Email Address</ion-label>
+                <ion-item class="rounded">
+                <ion-input type="email" name="email" [(ngModel)]="email"></ion-input>
+                </ion-item>
+                  <br>
+                  <ion-label class="color3">Password</ion-label>
+                  <ion-item class="rounded">
+                    <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
+                  </ion-item>
+                  <br>
+                  
+                  <ion-button type="submit" expand="block" (click)=log()>LOGIN</ion-button>
+                  <div>
+                  <ion-label>Already have an account?</ion-label>
+                  <ion-label class="forgotPass" (click)= goToSignUp()>Sign Up</ion-label>
+                </div>
+                  <ion-label>Forgot Password?</ion-label>
+                  <ion-label class="forgotPass" (click)= reset()>Reset</ion-label>
+  
+               
+                </div>  
+            </ion-card-content>
+          </ion-card>
+  </ion-content>
+  <ion-footer>
+    Designed by @<b>MUT INNOVATIONLAB</b>
+  </ion-footer>
+  
+

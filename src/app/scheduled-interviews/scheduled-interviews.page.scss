@@ -1,0 +1,496 @@
+
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    }
+    
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    }
+    /* Tooltip container */
+    .tooltip {
+    position: relative;
+    display: inline-block;
+    }
+    
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    }
+    
+    /* Tooltip arrow */
+    .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000000 transparent transparent transparent;
+    }
+    
+    /* Show the tooltip text when hovering over the container */
+    .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    .send{
+      margin-left: 90%;
+      margin-top: -4%;
+    }
+    
+    
+    .center{
+      text-align: center;
+    }
+    ion-content {
+      --background:#ECF0F6;
+    }
+    .container{
+    
+      margin-left:20px ;
+      margin-right: 20px;
+    }
+    ion-card{
+      background-color: #fff;
+      width: 550px;
+      height: 230px;
+       margin: 0 auto;
+    }
+    
+    
+    .info{
+    
+    
+    
+    
+      background-color: lightgray;
+    
+    
+      text-align: center;
+    
+    
+      margin-bottom:-10px;
+    
+    
+    }
+    
+    
+    
+    //TOTAL SELECTED STYLE
+    .bordered .body tr td.selected-text {
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      font-family: Arial, sans-serif;
+    }
+    .selected-text {
+      text-align: center;
+      background-color: #802B28;
+    }
+    
+    
+    
+    
+    
+    ion-content {
+      --background:#ECF0F6;
+    }
+    #popover-button {
+      color: white;
+    }
+    
+    
+    p{
+    
+    
+    color:red;
+    
+    
+    }
+    
+    .header-title {
+      margin: 0 auto;
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+    }
+    
+    .image-size {
+      
+      width: 100px; /* Adjust the desired width */
+      height: 60px; /* Adjust the desired height */
+     
+    }
+    
+    
+    
+    ion-buttons[slot="start"] ion-menu-button {
+      color: white;
+    }
+    .munu {
+      color: #fff;
+      font-family:Arial;
+      height: 50px; /* Set the desired height value */
+    }
+    
+    
+    
+    .pagination {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .centered-buttons {
+      display: flex;
+      justify-content: center;
+    }
+    
+    
+    .pagination {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .centered-buttons {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .pagination-button {
+      background-color: #c42e2e;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px;
+      cursor: pointer;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .pagination-button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    
+    
+    
+    
+    ////
+    /// 
+    ///
+    /// 
+     ion-alert.custom-alert {
+      --backdrop-opacity: 0.7;
+    }
+    
+    .custom-alert .alert-button-group {
+      padding: 8px;
+    }
+    
+    button.alert-button.alert-button-confirm {
+      background-color: var(--ion-color-success);
+      color: var(--ion-color-success-contrast);
+    }
+    
+    .md button.alert-button.alert-button-confirm {
+      border-radius: 4px;
+    }
+    
+    .ios .custom-alert button.alert-button {
+      border: 0.55px solid rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.2);
+    }
+    
+    .ios button.alert-button.alert-button-cancel {
+      border-right: 0;
+      border-bottom-left-radius: 13px;
+      border-top-left-radius: 13px;
+    }
+    
+    .ios button.alert-button.alert-button-confirm {
+      border-bottom-right-radius: 13px;
+      border-top-right-radius: 13px;
+    }
+    
+    //Table
+    .table-wrapper {
+      overflow-x: auto;
+    }
+    
+    .bordered {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 1rem;
+      background-color: transparent;
+      border: none;
+    }
+    
+    .bordered th,
+    .bordered td {
+      padding: 0.75rem;
+      vertical-align: top;
+      border: none;
+    }
+    
+    .bordered thead th {
+      vertical-align: bottom;
+      border-bottom: none;
+      background-color: #8b4513;
+      color: #fff;
+      font-weight: bold;
+    }
+    
+    .bordered tbody+tbody {
+      border-top: 2px solid #dee2e6;
+    }
+    
+    .color {
+      background-color: #f8f9fa;
+    }
+    
+    .white-text {
+      color: #fff;
+    }
+    
+    .bordered tbody tr:nth-of-type(odd) {
+      background-color: #696969;
+      color: #fff;
+    }
+    
+    .bordered tbody tr:nth-of-type(even) {
+      background-color: #f2f2f2;
+    }
+    
+    @media screen and (max-width: 768px) {
+      .bordered {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    
+      .bordered thead,
+      .bordered tbody,
+      .bordered th,
+      .bordered td,
+      .bordered tr {
+        display: block;
+      }
+    
+      .bordered thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+    
+      .bordered tbody tr {
+        border: none;
+      }
+    
+      .bordered td {
+        border: none;
+        border-bottom: 1px solid #dee2e6;
+        position: relative;
+        padding-left: 50%;
+      }
+    
+      .bordered td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+      }
+    
+      .bordered td:nth-of-type(1):before {
+        content: 'All: ';
+        font-weight: bold;
+      }
+    
+      .bordered td:nth-of-type(2):before {
+        content: 'Student: ';
+        font-weight: bold;
+      }
+    
+      .bordered td:nth-of-type(3):before {
+        content: 'Faculty: ';
+        font-weight: bold;
+      }
+    
+      .bordered td:nth-of-type(4):before {
+        content: 'Course: ';
+        font-weight: bold;
+      }
+    
+      .bordered td:nth-of-type(5):before {
+        content: 'Grade Average: ';
+        font-weight: bold;
+      }
+    
+      .bordered td:nth-of-type(6):before {
+        content: 'City: ';
+        font-weight: bold;
+      }
+    
+      .bordered td:nth-of-type(7):before {
+        content: 'Gender: ';
+        font-weight: bold;
+      }
+    
+      .bordered td:nth-of-type(8):before {
+        content: 'Status: ';
+        font-weight: bold;
+      }
+    
+      .bordered td:nth-of-type(9):before {
+        content: 'Email: ';
+        font-weight: bold;
+      }
+    
+    }
+    
+    ion-footer {
+      background-color: #300505;
+      color: #fcfcfc;
+      text-align: center;
+    }
+    .overlay-container {
+      position: relative;
+    }
+    
+    .overlay-list {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background-color: #ffffff;
+      width: 400px;
+    }
+    
+    
+    
+    
+    //email
+    
+    
+    
+    .email-card {
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 700px; /* Adjust the width as needed */
+      height: 400px; /* Adjust the height as needed */
+    }
+    
+    
+    
+    
+    .email-field {
+      margin-bottom: 15px;
+     // --background: transparent;
+     // border: 1px solid #1B69AE;
+      border-radius: 7px;
+    }
+    
+    .email-input {
+      --padding-start: 15px;
+      --padding-end: 15px;
+      --padding-top: 12px;
+      --padding-bottom: 12px;
+      border-radius: 10px;
+      font-weight: bold;
+      color:#050505;
+    }
+    
+    .email-input[placeholder="Message"] {
+      --padding-start: 15px;
+      --padding-end: 15px;
+      --padding-top: 15px;
+      --padding-bottom: 80px; /* Increase the padding-bottom value to make it larger */
+      border-radius: 10px;
+      height: 100px; /* Set a fixed height to create a square shape */
+      resize: none; /* Disable textarea resizing */
+    }
+    .email-field,
+    .email-input {
+      --background: transparent;
+      --border-color: transparent;
+    }
+    
+    
+    .send-button {
+      margin-top: 20px;
+      --padding-start: 15px;
+      --padding-end: 15px;
+      --padding-top: 12px;
+      --padding-bottom: 12px;
+      border-radius: 10px;
+      --background: linear-gradient(to right, #3f51b5, #2196f3);
+      --color: #fff;
+      --ion-ripple-color: #fff;
+    }
+    
+    .send-button ion-icon {
+      margin-right: 8px;
+    }
+    
+    .send-button {
+      --background: var(--ion-color-#006281); /* Set the default button background color */
+    }
+    
+    .send-button[disabled] {
+      --background: red; /* Set the button background color to red when disabled */
+    }
+    
+    
+    /* Add additional CSS styles and animations as per your requirements */
+    
+    ion-toolbar{
+        --background:blue
+      }

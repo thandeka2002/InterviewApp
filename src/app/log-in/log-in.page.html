@@ -1,0 +1,37 @@
+<ion-content>
+    <body>
+      <section class="container">
+        <div class="login-container">
+          <div class="circle circle-one"></div>
+          <div class="form-container">
+            <img src="../../assets/img/mut_logoo.jpg">
+                   
+            <form>
+              <ion-item>
+                <ion-icon name="person"></ion-icon>
+                <ion-input type="email" [(ngModel)]="email" [ngModelOptions]="{ standalone: true }" required placeholder="Enter your email"></ion-input>
+              </ion-item>
+                        
+              <ion-item>
+                <ion-icon name="lock-closed"></ion-icon>
+                <ion-input type="password" [(ngModel)]="password" [ngModelOptions]="{ standalone: true }" required placeholder="Enter your password"></ion-input>
+              </ion-item>
+              
+              <div class="col-md-6">
+                <a href="/reset" class="text-dark" style="text-decoration: none;"> Forgot Password ? </a>
+              </div>
+              
+              <button type="button" class="btn btn-info" (click)="Login()">Login</button>
+            </form>
+            
+            <div class="col-md-6">
+                <a href="/register" style="text-decoration: none;">Not a member? <span class="text-danger">Register</span></a>
+            </div>
+          </div>
+          <div class="circle circle-two"></div>
+        </div>
+        <div class="theme-btn-container"></div>
+      </section>
+    </body>
+  </ion-content>
+  

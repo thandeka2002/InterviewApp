@@ -1,0 +1,138 @@
+<ion-menu contentId="main-content"  >
+  <ion-header >
+    <ion-toolbar>
+      <ion-title class="munu">Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding" >
+    <ion-list >
+      <ion-item button (click)="goToMenuPage()">
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+        <ion-label>Back to Menu</ion-label>
+      </ion-item>
+      <ion-item button (click)="goToGraded()">
+        <ion-icon slot="start" name="checkmark-done-sharp"></ion-icon>
+        <ion-label>Graded Interviews</ion-label>
+      </ion-item>
+      <ion-item button (click)="goToScore()">
+        <ion-icon slot="start" name="person-add"></ion-icon>
+        <ion-label>Score capture</ion-label>
+      </ion-item>
+      <ion-item button (click)="goToScheduled()">
+        <ion-icon slot="start" name="book"></ion-icon>
+        <ion-label>Scheduled Interviews</ion-label>
+      </ion-item>
+      <ion-item button  (click)="goToAllApplicants()">
+        <ion-icon slot="start" name="document-text"></ion-icon>
+        <ion-label>All Applicants</ion-label>
+      </ion-item>
+      <ion-item button (click)="goToHistory()" >
+        <ion-icon slot="start" name="document-text"></ion-icon>
+        <ion-label>History</ion-label>
+      </ion-item>
+      <ion-item button  (click)="presentConfirmationAlert()">
+        <ion-icon slot="start" name="exit"></ion-icon>
+        <ion-label>Sign Out</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="start" class="phuto" (click)="goToHomePage()">
+        <img src="assets\MUT LOGO.png" >
+      </ion-buttons>
+      <h2 class="header-title">PROFILE VALIDATION</h2>
+      <ion-buttons slot="end">
+        <ion-button>
+            <ion-button id="popover-button"><ion-icon name="person"></ion-icon></ion-button>
+         
+          <ion-popover trigger="popover-button" [dismissOnSelect]="true">
+            <ng-template>
+              <ion-content>
+                <ion-list >
+                  <ion-item lines="none" [button]="true" [detail]="false" (click)="goToView()" ><ion-icon name="eye" ></ion-icon> &nbsp;  Profile</ion-item>
+                  <ion-item lines="none" [button]="true" [detail]="false"  (click)="presentConfirmationAlert()"><ion-icon color="danger" name="exit"></ion-icon>&nbsp;<p>LOGOUT</p></ion-item>
+                </ion-list>
+              </ion-content>
+            </ng-template>
+          </ion-popover>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="cent">
+    <ion-grid>
+      <table class="bordered">
+        <thead class="color">
+          <tr>
+            <th>
+              <ion-icon name="person"></ion-icon>
+              <br>
+              Student
+            </th>
+            <th>
+              <ion-icon name="trending-up"></ion-icon>
+              <br>
+              Grade Average
+            </th>
+            <th>
+              <ion-icon name="mail"></ion-icon>
+              <br>
+              Email
+            </th>
+            <th>
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody class="body">
+          <tr *ngFor="let data of tableData.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage)">
+            <!-- existing code -->
+               
+            <td class="white-text"   (click)="openValidateModal(data.academicRecordURl,data.cvUrl,data.idURL,data.letterURL)"  >{{data.fullName}}</td>
+            <td class="tooltip" (click)="openViewAcademicRecordModal(data.academicRecordURl)">
+              <ion-badge color="tertiary" style="cursor: pointer;">{{ data.gradeAverage }}</ion-badge>
+
+  <span class="tooltiptext">View Academic record</span>
+</td>
+            <td class="white-text">{{data.email}}</td>
+            <td>
+              <button ion-button (click)="approve(data.id, data.email)" class="horizontal-button approve-button" style="color: green;" >
+                Approve 
+              </button>
+              <button ion-button (click)="decline(data.id, data.email)" class="horizontal-button decline-button" color="success" style="color: red;">
+                Decline
+              </button>
+            </td>
+            
+            
+            
+            
+            
+          </tr>
+        </tbody>
+      </table>
+      <p class="total-text ion-text-left">Current Number of Applications: {{tableData.length}}</p>
+    </ion-grid>
+  </div>
+  
+  <div class="pagination">
+    <div class="centered-buttons">
+      <button class="pagination-button" [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
+      <button class="pagination-button" [disabled]="currentPage === totalPages()" (click)="nextPage()">Next</button>
+    </div>
+  </div>
+  
+  
+</ion-content>
+<ion-footer>
+  Designed by @<b>MUT INNOVATIONLAB</b>
+</ion-footer>
