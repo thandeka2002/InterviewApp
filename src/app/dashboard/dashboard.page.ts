@@ -124,7 +124,11 @@ export class DashboardPage implements OnInit {
             case 'scheduled-interviews':
               authorized = this.userDocument.role.upcomingInterviews === 'on';
               message = 'Unauthorized user for scheduled interviews page.';
-              break;
+            break;
+            case 'score-capture':
+             authorized = this.userDocument.role.score === 'on';
+             message = 'Unauthorized user for score capture page.';
+            break;
           default:
             authorized = false;
             message = 'Invalid page.';
@@ -175,6 +179,7 @@ export class DashboardPage implements OnInit {
   goToAllUsers(): Promise<void> {
     return this.navigateBasedOnRole('all-users');
   }
+
 
   goToStaffProfile() {
     this.navController.navigateForward('/staffprofile');

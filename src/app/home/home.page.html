@@ -1,59 +1,77 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true" >
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container" [style.background-image]="backgroundImage" class="background-image">
-    <strong>The Interview App is coming soon</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
-
-<!-- 
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Contact Us</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Job Search</ion-title>
   </ion-toolbar>
 </ion-header>
 
- <ion-content>
-  <ion-list>
-    
-    <ion-item>
-      <ion-label position="floating">Fullname</ion-label>
-      <ion-input type="text" [(ngModel)]="fullname" required></ion-input>
-    </ion-item>
+<ion-content>
+  <!-- Search Bar -->
+  <ion-searchbar placeholder="Search for jobs"></ion-searchbar>
 
-    
-    <ion-item>
-      <ion-label position="floating">Email Address</ion-label>
-      <ion-input type="email" [(ngModel)]="email" required></ion-input>
-    </ion-item>
+  <!-- Featured Jobs -->
+  <ion-card>
+    <ion-card-header>
+      Featured Jobs
+    </ion-card-header>
+    <ion-card-content>
+      <!-- List of featured job listings -->
+      <ion-list>
+        <!-- Featured job listing item -->
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img src="job_image_url" alt="Job Title">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>Job Title</h2>
+            <p>Company Name</p>
+            <p>Location</p>
+            <p>Salary: $60,000 - $80,000 per year</p>
+          </ion-label>
+        </ion-item>
+        <!-- Repeat for more featured jobs -->
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
-    
-    <ion-item>
-      <ion-label position="floating">Subject</ion-label>
-      <ion-input type="text" [(ngModel)]="subject" required></ion-input>
-    </ion-item>
+  <!-- Job Categories -->
+  <ion-card>
+    <ion-card-header>
+      Job Categories
+    </ion-card-header>
+    <ion-card-content>
+      <!-- List of job categories -->
+      <ion-list>
+        <!-- Job category item -->
+        <ion-item>
+          Category 1
+        </ion-item>
+        <!-- Repeat for more categories -->
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
-   
-    <ion-item>
-      <ion-label position="floating">Message</ion-label>
-      <ion-textarea [(ngModel)]="message" required></ion-textarea>
-    </ion-item>
-  </ion-list>
-
-  <div class="ion-padding">
-    <ion-button expand="full" (click)="submitForm()">Submit</ion-button>
-  </div>
-</ion-content> -->
+  <!-- Recent Jobs -->
+  <ion-card>
+    <ion-card-header>
+      Recent Jobs
+    </ion-card-header>
+    <ion-card-content>
+      <!-- List of recent job listings -->
+      <ion-list>
+        <!-- Recent job listing item -->
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img src="job_image_url" alt="Job Title">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>Job Title</h2>
+            <p>Company Name</p>
+            <p>Location</p>
+            <p>Salary: $50,000 - $70,000 per year</p>
+          </ion-label>
+        </ion-item>
+        <!-- Repeat for more recent jobs -->
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

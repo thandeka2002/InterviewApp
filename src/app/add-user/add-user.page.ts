@@ -100,6 +100,8 @@ export class AddUserPage implements OnInit {
     this.role.allUsers = toggleValue;
     console.log(this.role);
   }
+  
+  
 
 
 

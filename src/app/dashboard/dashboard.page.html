@@ -1,18 +1,19 @@
 
 <ion-menu contentId="main-content"  >
+  
   <ion-header >
     <ion-toolbar>
-      <ion-title class="munu">Menu Content</ion-title>
+      <ion-title class="munu">Menu</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding" >
     <ion-list >
       <ion-item button (click)="goToAddUser()">
-        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+        <ion-icon slot="start" name="person-add"></ion-icon>
         <ion-label>Add User</ion-label>
       </ion-item>
       <ion-item button (click)="goToGraded()">
-        <ion-icon slot="start" name="checkmark-done-sharp"></ion-icon>
+        <ion-icon slot="start"name="stats-chart"></ion-icon>
         <ion-label>Graded Interviews</ion-label>
       </ion-item>
       <ion-item button (click)="goToScores()">
@@ -20,15 +21,15 @@
         <ion-label>Score capture</ion-label>
       </ion-item>
       <ion-item button (click)="goToScheduledInterviews()">
-        <ion-icon slot="start" name="book"></ion-icon>
+        <ion-icon slot="start" name="calendar"></ion-icon>
         <ion-label>Scheduled Interviews</ion-label>
       </ion-item>
       <ion-item button  (click)="goToAllApplicants()">
-        <ion-icon slot="start" name="document-text"></ion-icon>
+        <ion-icon slot="start" name="people"></ion-icon>
         <ion-label>All Applicants</ion-label>
       </ion-item>
       <ion-item button (click)="goToInterviewHistory()" >
-        <ion-icon slot="start" name="document-text"></ion-icon>
+        <ion-icon slot="start" name="timer"></ion-icon>
         <ion-label>History</ion-label>
       </ion-item>
       <ion-item button  (click)="presentConfirmationAlert()">
@@ -50,7 +51,7 @@
       <h2 class="header-title">DASHBOARD</h2>
       <ion-buttons slot="end">
         <ion-button>
-            <ion-button id="popover-button"><ion-icon name="person"></ion-icon></ion-button>
+            <ion-button id="popover-button"><ion-icon name="person-circle"></ion-icon></ion-button>
          
           <ion-popover trigger="popover-button" [dismissOnSelect]="true">
             <ng-template>
@@ -75,34 +76,51 @@
     <ion-row>
       <ion-col size="12" size-md="4">
         <ion-card class="dashboard-card" color="danger" (click)= goToAllApplicants()>
-          <ion-icon name="person"></ion-icon>
+          <ion-icon name="people"></ion-icon>
           <h2>All Applicants</h2>
         </ion-card>
       </ion-col>
+  
       <ion-col size="12" size-md="4">
         <ion-card class="dashboard-card" color="danger" (click)= goToAllUsers()>
-          <ion-icon name="calendar"></ion-icon>
+          <ion-icon name="people-circle"></ion-icon>
           <h2>All Users</h2>
         </ion-card>
       </ion-col>
       <ion-col size="12" size-md="4">
         <ion-card class="dashboard-card" color="danger" (click)= goToScheduledInterviews()>
-          <ion-icon name="clipboard"></ion-icon>
+          <ion-icon name="calendar"></ion-icon>
           <h2>Check Scheduled Interviews</h2>
         </ion-card>
       
       </ion-col>
       <ion-col size="12" size-md="4">
+        <ion-card class="dashboard-card" color="danger" (click)= goToScores()>
+          <ion-icon name="document-text"></ion-icon>
+          <h2>Score-Capture</h2>
+        </ion-card>
+      
+      </ion-col>
+      <ion-col size="12" size-md="4">
         <ion-card class="dashboard-card" color="danger" (click)= goToGraded()>
-          <ion-icon name="clipboard"></ion-icon>
+          <ion-icon name="stats-chart"></ion-icon>
           <h2>Graded Interviews</h2>
         </ion-card>
-      </ion-col><ion-col size="12" size-md="4">
+      </ion-col>
+      <ion-col size="12" size-md="4">
         <ion-card class="dashboard-card" color="danger" (click)= goToAddUser()>
-          <ion-icon name="clipboard"></ion-icon>
+          <ion-icon name="person-add"></ion-icon>
           <h2>Add Users</h2>
         </ion-card>
+        
       </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card class="dashboard-card" color="danger" (click)= goToInterviewHistory()>
+          <ion-icon name="timer"></ion-icon>
+          <h2>Interviews History</h2>
+        </ion-card>
+      </ion-col>
+      
     </ion-row>
   </ion-grid>
 </ion-content>
