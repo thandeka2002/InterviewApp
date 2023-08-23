@@ -19,14 +19,46 @@ export class DashboardPage implements OnInit {
 
   navController: NavController;
   userDocument:any
+  
 
   constructor(private alertController: AlertController,private toastController: ToastController,private navCtrl: NavController,  private auth:AngularFireAuth,private db: AngularFirestore) {
     this.getUser();
     this.navController = navCtrl;
    }
 
-  ngOnInit() {
+   ngOnInit() {
+  
+    //this.Interviwees=this.firestore.collection('Interviwees').valueChanges();
   }
+  
+  // this.router.navigate(['/schedule-interview']);
+  async nav(){
+    this.navCtrl.navigateForward('/schedule-interview');
+  }
+  
+  async retrieveData() {
+    this.navCtrl.navigateForward('/scheduled');
+  }
+
+ 
+
+  
+    // const today=new Date();
+    // const qDate=new Date(today.getFullYear(),today.getMonth(), today.getDate());
+
+    // this.firestore.collection('Interviwees', (ref)=> ref.where('date', '>=', qDate)).valueChanges().pipe(map((data: any[]) => data.sort((a,b)=>a.date - b.date))).subscribe((data) =>{
+    //   this.Interviwees = data;
+    // });
+    // this.firestore.collection('Interviwees').doc('m12d7BgoICoPHDT2a0po').get()
+    // .subscribe(doc => {
+    //   if (doc.exists) {
+    //     this.formData = doc.data();
+    //   } else {
+    //     console.log('Document not found.');
+    //   }
+    // });
+
+ 
 
  
 
@@ -71,27 +103,27 @@ export class DashboardPage implements OnInit {
         switch (page) {
           case 'all-applicants':
             authorized = this.userDocument.role.allApplicants === 'on';
-            message = 'Unauthorized user for Wil page.';
+            message = 'Unauthorized user for all applicants page.';
             break;
-          case 'schedule-interview':
+          case 'marks':
             authorized = this.userDocument.role.marks === 'on';
-            message = 'Unauthorized user for Employment page.';
+            message = 'Unauthorized user for grades page.';
             break;
           case 'add-user':
             authorized = this.userDocument.role.addUser === 'on';
-            message = 'Access denied to History page.';
+            message = 'Access denied add user page.';
             break;
-          case 'score-capture':
-            authorized = this.userDocument.role.score === 'on';
-            message = 'Unauthorized user for Reports page.';
+          case 'all-users':
+            authorized = this.userDocument.role.allUsers === 'on';
+            message = 'Unauthorized user for all users page.';
             break;
             case 'interview-history':
             authorized = this.userDocument.role.history === 'on';
-            message = 'Unauthorized user for wil page.';
+            message = 'Unauthorized user for history page.';
             break;
-            case 'scheduledInterviews':
+            case 'scheduled-interviews':
               authorized = this.userDocument.role.upcomingInterviews === 'on';
-              message = 'Unauthorized user for grade validator page.';
+              message = 'Unauthorized user for scheduled interviews page.';
               break;
           default:
             authorized = false;
@@ -149,9 +181,7 @@ export class DashboardPage implements OnInit {
   }
 
 
-  signOut() {
-    this.navController.navigateForward('/home');
-  }
+
 
   goToHomePage(): void {
     this.navController.navigateBack('/home');
@@ -183,7 +213,7 @@ export class DashboardPage implements OnInit {
               this.presentToast();
         
         
-            }).catch((error) => {
+            }).catch(() => {
             
             });
 

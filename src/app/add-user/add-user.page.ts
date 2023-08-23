@@ -37,7 +37,8 @@ export class AddUserPage implements OnInit {
     allApplicants: 'off',
     addUser: 'off',
     marks: 'off',
-    upcomingInterviews: 'off'
+    upcomingInterviews: 'off',
+    allUsers: 'off'
   };
 
   constructor(
@@ -51,10 +52,7 @@ export class AddUserPage implements OnInit {
     this.navController = navCtrl;
   }
 
-  goToAllUsers(){
-    this.navController.navigateForward('/all-users');
-
-  }
+  
   goToView(): void {
     this.navController.navigateBack('/staffprofile');
   }
@@ -95,6 +93,11 @@ export class AddUserPage implements OnInit {
   getApplicantsValue(event: any) {
     const toggleValue = event.target.checked ? 'on' : 'off';
     this.role.allApplicants = toggleValue;
+    console.log(this.role);
+  }
+  getAllUsersValue(event: any) {
+    const toggleValue = event.target.checked ? 'on' : 'off';
+    this.role.allUsers = toggleValue;
     console.log(this.role);
   }
 
@@ -298,13 +301,13 @@ async getUser(): Promise<void> {
 
 
 
-async goToScore(): Promise<void> {
+async goToAllUsers(): Promise<void> {
   try {
     await this.getUser();
 
-    if (this.userDocument && this.userDocument.role && this.userDocument.role.employment === 'on') {
+    if (this.userDocument && this.userDocument.role && this.userDocument.role.allUsers === 'on') {
       // Navigate to the desired page
-      this.navController.navigateForward('/score-capture');
+      this.navController.navigateForward('/all-users');
     } else {
       const toast = await this.toastController.create({
         message: 'Unauthorized user.',
@@ -314,7 +317,7 @@ async goToScore(): Promise<void> {
       toast.present();
     }
   } catch (error) {
-    console.error('Error navigating to score capture Page:', error);
+    console.error('Error navigating to All Users Page:', error);
   }
 }
 
@@ -363,7 +366,7 @@ async  goToStaff(): Promise<void> {
   try {
     await this.getUser();
 
-    if (this.userDocument && this.userDocument.role && this.userDocument.role.statistic === 'on') {
+    if (this.userDocument && this.userDocument.role && this.userDocument.role.allUsers === 'on') {
       // Navigate to the desired page
       this.navController.navigateForward('/all-users');
     } else {
@@ -384,7 +387,7 @@ async goToGraded(): Promise<void> {
   try {
     await this.getUser();
 
-    if (this.userDocument && this.userDocument.role && this.userDocument.role.wil === 'on') {
+    if (this.userDocument && this.userDocument.role && this.userDocument.role.marks === 'on') {
       // Navigate to the desired page
       this.navController.navigateForward('/marks');
     } else {
@@ -405,9 +408,9 @@ async goToScheduled(): Promise<void> {
   try {
     await this.getUser();
 
-    if (this.userDocument && this.userDocument.role && this.userDocument.role.wil === 'on') {
+    if (this.userDocument && this.userDocument.role && this.userDocument.role.upcomingInterviews === 'on') {
       // Navigate to the desired page
-      this.navController.navigateForward('/marks');
+      this.navController.navigateForward('/scheduled-interviews');
     } else {
       const toast = await this.toastController.create({
         message: 'Unauthorized user.',

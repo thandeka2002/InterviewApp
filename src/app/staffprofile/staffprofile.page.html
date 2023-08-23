@@ -62,27 +62,27 @@
         <ion-card-content class="card-content">
           <div class="task-grid">
             <div class="task-row">
-              <div class="task-col" *ngIf="(user$ | async)?.role.history === 'on'">
-                History
+              <div class="task-col" *ngIf="(user$ | async)?.role.allApplicants === 'on'">
+                All Applicants
               </div>
-              <div class="task-col" *ngIf="(user$ | async)?.role.statistic === 'on'">
-                Reports
+              <div class="task-col" *ngIf="(user$ | async)?.role.allUsers === 'on'">
+                All Users
               </div>
             </div>
             <div class="task-row">
-              <div class="task-col" *ngIf="(user$ | async)?.role.employment === 'on'">
-                Employment
+              <div class="task-col" *ngIf="(user$ | async)?.role.upcomingInterviews === 'on'">
+                Scheduled Interviews
               </div>
-              <div class="task-col" *ngIf="(user$ | async)?.role.wil === 'on'">
-                WIL
+              <div class="task-col" *ngIf="(user$ | async)?.role.marks === 'on'">
+                Graded Interviews
               </div>
             </div>
             <div class="task-row">
               <div class="task-col" *ngIf="(user$ | async)?.role.addUser === 'on'">
                 +New Users
               </div>
-              <div class="task-col" *ngIf="(user$ | async)?.role.validation === 'on'">
-                Profile_Validation
+              <div class="task-col" *ngIf="(user$ | async)?.role.history === 'on'">
+                History
               </div>
             </div>
           </div>

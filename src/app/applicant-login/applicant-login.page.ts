@@ -110,7 +110,7 @@ export class ApplicantLoginPage implements OnInit {
 
         if (userCred){
 
-        this.db.collection('applicant-reg', ref => ref.where('email', '==', this.email))
+        this.db.collection('registeredStudents', ref => ref.where('email', '==', this.email))
         .get()
         .toPromise()
         .then((querySnapshot:any) => {
@@ -121,7 +121,7 @@ export class ApplicantLoginPage implements OnInit {
             const loginCount = userData.loginCount || 0;
             const newLoginCount = loginCount + 1;
 
-            this.db.collection("applicant-reg").doc(id).update({ loginCount: newLoginCount });
+            this.db.collection("registeredStudents").doc(id).update({ loginCount: newLoginCount });
           });
         });
 
@@ -130,7 +130,7 @@ export class ApplicantLoginPage implements OnInit {
 
 
 
-     this.db.collection("applicant-reg")
+     this.db.collection("registeredStudents")
           .ref.where("email", "==", this.email.trim())
           .get()
           .then((querySnapshot) => {

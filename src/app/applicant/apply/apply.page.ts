@@ -143,11 +143,6 @@ municipalities:any[]=[];
     });
   }*/
 
-  updateCountry() {
-    if (this.selectedProvince !== 'International') {
-      this.country = 'South Africa';
-    }
-  }
 
 
   ngOnInit() {}
@@ -547,7 +542,7 @@ municipalities:any[]=[];
 
         loader.dismiss();
         alert('Information successfully saved');
-        this.navCtrl.navigateForward('/home');
+        this.navCtrl.navigateForward('/view');
       } else {
         loader.dismiss();
         throw new Error('User not found');
