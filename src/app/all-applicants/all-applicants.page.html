@@ -81,7 +81,12 @@
             <th>
               <ion-icon name="trending-up"></ion-icon>
               <br>
-              Grade Average
+              Experience
+            </th>
+            <th>
+              <ion-icon name="book-outline"></ion-icon>
+              <br>
+              Qualification
             </th>
             <th>
               <ion-icon name="mail"></ion-icon>
@@ -104,6 +109,7 @@
   <span class="tooltiptext">View Academic record</span>
 </td>
             <td class="white-text">{{data.email}}</td>
+            <td class="white-text">{{data.degree}}</td>
             <td>
               <button ion-button (click)="approve(data.id, data.email)" class="horizontal-button approve-button" style="color: green;" >
                 Approve 

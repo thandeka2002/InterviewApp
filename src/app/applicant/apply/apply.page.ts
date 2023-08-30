@@ -51,9 +51,13 @@ export class ApplyPage implements OnInit {
   studentno='';
   qualification = '';
   graduationYear = '';
-  universityOrCollege = '';
+  Qdescription='';
+  degree= '';
+  studyField= '';
+  universityOrCollege= ''; 
   workEperience = '';
   workReferance = '';
+  TotalExperience = '';
   academicRecordURl = '';
   certicatesUrl = '';
   idURL = '';
@@ -93,6 +97,7 @@ export class ApplyPage implements OnInit {
   codeError: any;
   fullNameError:any;
   lastNameError:any;
+  TotalExperienceError: any;
   coursedata : any[]=[];
   provinceError:any;
  bithDateError:any;
@@ -209,6 +214,7 @@ municipalities:any[]=[];
     this.universityError=null
     this.yearError=null;
     this.refError=null;
+    this.TotalExperienceError=null;
 
    
   
@@ -324,6 +330,12 @@ municipalities:any[]=[];
       alert('Please enter your grade average.');
       return;
    }
+
+   if (this.TotalExperience === '') {
+    this.TotalExperienceError = 'Please enter your Country.';
+    alert('Please enter your country.');
+    return;
+  }
     
    const gradeAverageRegex = /^\d{1,3}$/; // regular expression for one to three-digit numbers
     
@@ -515,6 +527,7 @@ municipalities:any[]=[];
           references: this.references,
           qualifications: this.qualifications,
           gradeAverage:this.gradeAverage,
+          tTotalExperience: this.TotalExperience,
           skills: this.skills,
           license: this.license,
           languages: this.languages,
@@ -679,6 +692,7 @@ municipalities:any[]=[];
                 qualifications:this.qualifications,
                 gradeAverage:this.gradeAverage,
                 skills: this.skills,
+                TotalExperience: this.TotalExperience,
                 languages: this.languages,
                 graduationYear: this.graduationYear,
                 status: 'pending',
@@ -711,7 +725,7 @@ municipalities:any[]=[];
         loader.dismiss();
         alert('Information successfully saved');
         //this.navCtrl.navigateForward('/home');
-        this.navCtrl.navigateForward('/profile', {
+        this.navCtrl.navigateForward('/view', {
         queryParams: { reference: this.fullname, data: this.data, source: 'buttons' },
         });
       } else {
@@ -1277,7 +1291,7 @@ console.log('update cv ' + this.cvUrl);
             this.province = userDocument.province;
             this.graduationYear = userDocument.graduationYear;
             this.faculty = userDocument.faculty;
-            
+            this.TotalExperience = userDocument.TotalExperience;
             this.level = userDocument.level;
             this.selectedOption = userDocument.course;
         
