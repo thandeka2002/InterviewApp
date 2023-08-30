@@ -1,77 +1,28 @@
+<!-- home.page.html -->
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Job Search</ion-title>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+    <ion-title class="header-title">
+      My Stylish App
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- Search Bar -->
-  <ion-searchbar placeholder="Search for jobs"></ion-searchbar>
-
-  <!-- Featured Jobs -->
-  <ion-card>
-    <ion-card-header>
-      Featured Jobs
-    </ion-card-header>
-    <ion-card-content>
-      <!-- List of featured job listings -->
-      <ion-list>
-        <!-- Featured job listing item -->
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <img src="job_image_url" alt="Job Title">
-          </ion-thumbnail>
-          <ion-label>
-            <h2>Job Title</h2>
-            <p>Company Name</p>
-            <p>Location</p>
-            <p>Salary: $60,000 - $80,000 per year</p>
-          </ion-label>
-        </ion-item>
-        <!-- Repeat for more featured jobs -->
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-
-  <!-- Job Categories -->
-  <ion-card>
-    <ion-card-header>
-      Job Categories
-    </ion-card-header>
-    <ion-card-content>
-      <!-- List of job categories -->
-      <ion-list>
-        <!-- Job category item -->
-        <ion-item>
-          Category 1
-        </ion-item>
-        <!-- Repeat for more categories -->
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-
-  <!-- Recent Jobs -->
-  <ion-card>
-    <ion-card-header>
-      Recent Jobs
-    </ion-card-header>
-    <ion-card-content>
-      <!-- List of recent job listings -->
-      <ion-list>
-        <!-- Recent job listing item -->
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <img src="job_image_url" alt="Job Title">
-          </ion-thumbnail>
-          <ion-label>
-            <h2>Job Title</h2>
-            <p>Company Name</p>
-            <p>Location</p>
-            <p>Salary: $50,000 - $70,000 per year</p>
-          </ion-label>
-        </ion-item>
-        <!-- Repeat for more recent jobs -->
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
+<ion-content class="ion-padding">
+  <div class="container">
+    <div class="image-container">
+      <img src="assets/logo.jpg" alt="Logo" class="logo">
+    </div>
+    <h1 class="app-title">Welcome to Our Stylish App</h1>
+    <p class="app-description">Discover the beauty of our app.</p>
+    <ion-button expand="block" shape="round" color="secondary" routerLink="/about" routerDirection="forward" class="learn-more-button">
+      Learn More
+    </ion-button>
+  </div>
 </ion-content>
