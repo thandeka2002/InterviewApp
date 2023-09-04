@@ -1,225 +1,45 @@
-<ion-menu contentId="main-content"  >
-  <ion-header >
-    <ion-toolbar>
-      <ion-title class="munu">Menu Content</ion-title>
-    </ion-toolbar>
+<ion-header>
+  <ion-toolbar color ="danger">
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+    <ion-title>All Interviews</ion-title>
+  </ion-buttons>
+  </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding" >
-    <ion-list >
-      <ion-item button (click)="goToMenuPage()">
-        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
-        <ion-label>Back to Menu</ion-label>
-      </ion-item>
-      <ion-item button (click)="goToGraded()">
-        <ion-icon slot="start" name="checkmark-done-sharp"></ion-icon>
-        <ion-label>Graded Interviews</ion-label>
-      </ion-item>
-      <ion-item button (click)="goToAddUser">
-        <ion-icon slot="start" name="person-add"></ion-icon>
-        <ion-label>Add User</ion-label>
-      </ion-item>
-      <ion-item button (click)="goToScore" >
-        <ion-icon slot="start" name="briefcase"></ion-icon>
-        <ion-label>Score Capture</ion-label>
-      </ion-item>
-      <ion-item button (click)="goToHistory()">
-        <ion-icon slot="start" name="book"></ion-icon>
-        <ion-label>History</ion-label>
-      </ion-item>
-      <ion-item button  (click)="goToAllApplicants()">
-        <ion-icon slot="start" name="document-text"></ion-icon>
-        <ion-label>All Applicants</ion-label>
-      </ion-item>
-      <ion-item button (click)="presentConfirmationAlert()" >
-        <ion-icon slot="start" name="exit"></ion-icon>
-        <ion-label>Sign Out</ion-label>
-      </ion-item>
+  <ion-content>
+    <ion-list>
+      <ng-container *ngFor="let group of groupedInterviewees | keyvalue">
+        <ion-item-divider color="primary">
+          <ion-label>{{ group.key === todayDateString ? 'Today' : group.key }}</ion-label>
+        </ion-item-divider>
+        <ion-item *ngFor="let item of group.value">
+          <ion-card class="custom-card">
+            <ion-card-content>
+              <p>ID: {{ item.int_id }}</p>
+              <p>Name: {{ item.name }}</p>
+              <p>Surname:{{ item.surname }}</p>
+              <p>Email: {{ item.email }}</p>
+              <p>Date: {{ item.date }}</p> 
+              <p>Status: {{ item.Status }}</p>
+              
+              <ion-col>
+                <!-- Display ion-select if showSelect property is true -->
+                <ion-select [(ngModel)]="item.selectedOption" (ionChange)="updateField(item.int_id,item.selectedOption)" placeholder="Update Status">
+                  <ion-select-option value="In Progress">In Progress</ion-select-option>
+                  <ion-select-option value="Interviewed">Interviewed</ion-select-option>
+                  <ion-select-option value="Waiting">Waiting</ion-select-option>
+                </ion-select>
+                
+                <!-- Display selected option if available -->
+                <!-- <ion-label *ngIf="item.selectedOption">Selected: {{ item.selectedOption }}</ion-label> -->
+              </ion-col>
+            </ion-card-content>
+         
+  
+     
+          </ion-card>
+        </ion-item>
+      </ng-container>
     </ion-list>
   </ion-content>
-</ion-menu>
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-buttons slot="start" class="photo" (click)="goToHomePage()">
-        <img src="assets\MUT LOGO.png" class="image-size">
-      </ion-buttons>
-      <h2 class="header-title">INterviews</h2>
-      <ion-buttons slot="end">
-        <ion-button>
-            <ion-button id="popover-button"><ion-icon name="person"></ion-icon></ion-button>
-         
-          <ion-popover trigger="popover-button" [dismissOnSelect]="true">
-            <ng-template>
-              <ion-content>
-                <ion-list >
-                  <ion-item lines="none" [button]="true" [detail]="false" (click)="goToStaffProfile()"><ion-icon name="eye"></ion-icon> &nbsp;  VIEW PROFILE</ion-item>
-                  <ion-item lines="none" [button]="true" [detail]="false"><ion-icon color="danger" name="exit"></ion-icon>&nbsp;<p>LOGOUT</p></ion-item>
-                </ion-list>
-              </ion-content>
-            </ng-template>
-          </ion-popover>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
   
-
-
- <ion-content [fullscreen]="true" style="--background: url('assets/view2.jpg') no-repeat center / cover;">
-  
- <ion-grid>
-   <ion-row>
-  <ion-col>
-    <ion-item item-start>
-      <ion-label>Gender</ion-label>
-      <ion-select [(ngModel)]="genderbase" (ionChange)="genderFilter()">
-        <ion-select-option value="Female">Female</ion-select-option>
-        <ion-select-option value="Male">Male</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-col>
-
-  <ion-col>
-    <ion-item item-start>
-      <ion-label>Grade Average</ion-label>
-      <ion-select [(ngModel)]="gradeAverage" (ionChange)="avg()">
-        <ion-select-option value="50">50% - 59%</ion-select-option>
-        <ion-select-option value="60">60% - 69%</ion-select-option>
-        <ion-select-option value="70">70% - 79%</ion-select-option>
-        <ion-select-option value="80">80% - 89%</ion-select-option>
-        <ion-select-option value="90">90% - 100%</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-col>
-  </ion-row>
-
-
-  </ion-grid>
-
-  
- 
-
-
-
-
-  <div class="table-wrapper">
-    <table class="bordered">
-      <thead class="color">
-        <tr>
-          <th>
-            <ion-checkbox id="select-all-checkbox" [(ngModel)]="selectAllCheckbox" (ionChange)="selectAll()">All</ion-checkbox>
-          </th>
-          <th>
-            <ion-icon name="person"></ion-icon>
-            <br>
-            Student
-          </th>
-          <th>
-            <ion-icon name="school"></ion-icon>
-            <br>
-            Faculty
-          </th>
-          <th>
-            <ion-icon name="book"></ion-icon>
-            <br>
-            Course
-          </th>
-          <th>
-            <ion-icon name="trending-up"></ion-icon>
-            <br>
-            Grade Average
-          </th>
-          <th>
-            <ion-icon name="location"></ion-icon>
-            <br>
-            City
-          </th>
-          <th>
-            <ion-icon name="male-female-outline"></ion-icon>
-            <br>
-            Gender
-          </th>
-          <th>
-            <ion-icon name="checkmark-done-sharp"></ion-icon>
-            <br>
-            Status
-          </th>
-          <th>
-            <ion-icon name="mail"></ion-icon>
-            <br>
-            Email
-          </th>
-        </tr>
-      </thead>
-      <tbody class="body">
-        <tr *ngFor="let data of tableData.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage)">
-          <td>
-            <ion-checkbox [(ngModel)]="data.checked" (ionChange)="updateSelectedItems(data,data.AllInOnePdfURL,data.email)"></ion-checkbox>
-          </td>
-          <td class="tooltip-placeholder" (click)="openCVModal(data.cvUrl)" title="Click for more info!!">{{ data.fullName }}</td>
-          <td>{{ data.faculty }}</td>
-          <td>{{ data.course }}</td>
-          <td class="tooltip" (click)="openViewAcademicRecordModal(data.academicRecordURl)">
-            <ion-badge color="tertiary" style="cursor: pointer;">{{ data.gradeAverage }}</ion-badge>
-            <span class="tooltiptext">Click for more information</span>
-          </td>
-          <td>{{ data.city }}</td>
-          <td>{{ data.gender }}</td>
-          <td>{{ data.status }}</td>
-          <td>{{ data.email }}</td>
-        </tr>
-        <tr>
-          <td colspan="9" class="selected-text">Selected {{ getSelectionCount() }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
-
-
-
-
-  <ion-card class="email-card" *ngIf="showEmailFields" style="--background: url('assets/white.jpg') no-repeat center / cover;">
-    <ion-card-content>
-      <ion-item *ngIf="showEmailFields" class="email-field">
-        <ion-input class="email-input" type="text" placeholder="company name" [(ngModel)]="companyNames" required></ion-input>
-        <ion-text class="error-message" *ngIf="isFieldEmpty(companyNames)">*</ion-text>
-      </ion-item>
-  
-      <ion-item *ngIf="showEmailFields" class="email-field">
-        <ion-input class="email-input" type="email" placeholder="Enter email address" [(ngModel)]="recipient" required></ion-input>
-        <ion-text class="error-message" *ngIf="isFieldEmpty(recipient)">*</ion-text>
-      </ion-item>
-  
-      <ion-item *ngIf="showEmailFields" class="email-field">
-        <ion-input class="email-input" type="text" placeholder="Enter subject" [(ngModel)]="subject" required></ion-input>
-        <ion-text class="error-message" *ngIf="isFieldEmpty(subject)">*</ion-text>
-      </ion-item>
-  
-      <ion-textarea class="email-input" placeholder="Message" [(ngModel)]="body" required (ionChange)="formatBody()"></ion-textarea>
-  
-      <ion-button *ngIf="showEmailFields" expand="full" (click)="sendEmail()" class="send-button" [disabled]="!isFormValid()">
-        <ion-icon name="paper-plane-outline" slot="start"></ion-icon> Send
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
-  
-  
-  
-
-
-<div class="pagination">
-  <div class="centered-buttons">
-    <button class="pagination-button" [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
-    <button class="pagination-button" [disabled]="currentPage === totalPages()" (click)="nextPage()">Next</button>
-  </div>
-</div>
-
-
-</ion-content>
-<ion-footer>
-  Designed by @<b>MUT INNOVATIONLAB</b>
-</ion-footer>

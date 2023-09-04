@@ -30,7 +30,16 @@ export class DashboardPage implements OnInit {
   
     //this.Interviwees=this.firestore.collection('Interviwees').valueChanges();
   }
-  
+  onViewChange(event: any) {
+    const selectedView = event.detail.value;
+    
+    // Navigate to another page based on the selected view
+    if (selectedView === 'all') {
+      this.navCtrl.navigateForward('/scheduled-interviews'); // Replace with your desired route
+    } else if (selectedView === 'today') {
+     this.navCtrl.navigateForward('/today-interviews'); // Replace with your desired route
+    }
+  }
   // this.router.navigate(['/schedule-interview']);
   async nav(){
     this.navCtrl.navigateForward('/schedule-interview');
